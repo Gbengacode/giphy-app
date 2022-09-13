@@ -45,7 +45,7 @@ const Login = () => {
         await login(auth, email, password);
         navigate('/');
       } catch {
-        setError('Fail to login in');
+        setError('Fail to login, please check your email or password');
       }
     }
   };
