@@ -78,10 +78,7 @@ const Login = () => {
         </Form>
       </Card.Body>
       <Card.Footer className="w-100 text-center ">
-        <p className="mt-2">
-          Not registered?
-          <Link to="/register">Register</Link>
-        </p>
+        <p className="mt-2">Not registered?  <Link to="/register">Register</Link></p>
       </Card.Footer>
     </Card>
   );
