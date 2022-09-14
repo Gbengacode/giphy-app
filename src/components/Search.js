@@ -26,7 +26,7 @@ const Search = ({ handleChangeSearch, searchTerm, handleSubmit, error }) => (
           <Col md={2}>
             <input
               type="submit"
-              value="submit"
+              value="search"
               className="mt-2  xs-w-100"
               onClick={handleSubmit}
             />
