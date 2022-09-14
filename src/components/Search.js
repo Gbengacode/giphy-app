@@ -5,9 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { BsSearch } from 'react-icons/bs';
 
-const Search = ({
-  handleChangeSearch, searchTerm, handleSubmit, error,
-}) => (
+const Search = ({ handleChangeSearch, searchTerm, handleSubmit, error }) => (
   <Card style={{ width: '46rem' }} className="shadow rounded">
     <Card.Body>
       <Form className="mt-2">
@@ -22,14 +20,17 @@ const Search = ({
                 onChange={handleChangeSearch}
                 value={searchTerm}
               />
-
             </div>
             {error && <span className="text-danger">{error}</span>}
           </Col>
           <Col md={2}>
-            <input type="submit" className="mt-2  xs-w-100" onClick={handleSubmit} />
+            <input
+              type="submit"
+              value="submit"
+              className="mt-2  xs-w-100"
+              onClick={handleSubmit}
+            />
           </Col>
-
         </Form.Group>
       </Form>
     </Card.Body>
