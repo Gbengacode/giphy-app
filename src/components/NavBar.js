@@ -1,20 +1,16 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../Contexts/AuthContext";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../Contexts/AuthContext';
 
 const NavBar = () => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = async () => {
-    try {
-      await logout();
-      navigate("/login");
-    } catch (error) {
-      console.log(error);
-    }
+    await logout();
+    navigate('/login');
   };
   return (
     <>

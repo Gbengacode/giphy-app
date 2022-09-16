@@ -1,13 +1,6 @@
 import {
   createContext, useState, useContext, useEffect,
 } from 'react';
-
-// import {
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-//   onAuthStateChanged,
-//   signOut,
-// } from "firebase/auth";
 import {
   onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,
 } from 'firebase/auth';
@@ -18,7 +11,7 @@ const AuthContext = createContext();
 export function useAuth() {
   return useContext(AuthContext);
 }
-// eslint-disable-next-line react/prop-types
+
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState('');
   const [isLoading, setIsLoading] = useState(true);

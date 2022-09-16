@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import ReactPaginate from 'react-paginate';
 import Spinner from 'react-bootstrap/Spinner';
+import { debounce } from 'lodash';
 import Search from '../components/Search';
 import Cards from '../components/Cards';
 import fetchPhoto from '../api/photo';
@@ -21,10 +22,11 @@ const HomePage = () => {
   const handlePageChange = ({ selected }) => {
     setPageNumber(selected);
   };
-  const handleChangeSearch = (e) => {
+
+  const handleChangeSearch = debounce((e) => {
     setSearchTerm(e.target.value);
     setError('');
-  };
+  }, 1000);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,13 +37,24 @@ const HomePage = () => {
     setData(data);
     setIsLoading(false);
   };
+
+  const hotSearch = async (searchTerm) => {
+    setIsLoading(true);
+    const data = await fetchPhoto(searchTerm);
+    setData(data);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    hotSearch(searchTerm);
+  }, [searchTerm]);
+
   return (
     <>
       <div className="d-flex justify-content-center align-item-center mt-5">
         <Search
           handleChangeSearch={handleChangeSearch}
           handleSubmit={handleSubmit}
-          searchTerm={searchTerm}
           error={error}
         />
       </div>
