@@ -19,7 +19,7 @@ const Search = ({
                 placeholder="article or name"
                 className="search-input"
                 onChange={handleChangeSearch}
-
+                
               />
             </div>
             {error && <span className="text-danger">{error}</span>}

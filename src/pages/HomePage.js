@@ -55,6 +55,7 @@ const HomePage = () => {
         <Search
           handleChangeSearch={handleChangeSearch}
           handleSubmit={handleSubmit}
+          searchTerm={searchTerm}
           error={error}
         />
       </div>
