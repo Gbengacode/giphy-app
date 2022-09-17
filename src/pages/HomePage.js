@@ -24,6 +24,7 @@ const HomePage = () => {
   };
 
   const handleChangeSearch = debounce((e) => {
+    e.persist();
     setSearchTerm(e.target.value);
     setError('');
   }, 1000);
@@ -41,6 +42,7 @@ const HomePage = () => {
   const hotSearch = async (searchTerm) => {
     setIsLoading(true);
     const data = await fetchPhoto(searchTerm);
+    
     setData(data);
     setIsLoading(false);
   };
@@ -55,7 +57,6 @@ const HomePage = () => {
         <Search
           handleChangeSearch={handleChangeSearch}
           handleSubmit={handleSubmit}
-          searchTerm={searchTerm}
           error={error}
         />
       </div>
